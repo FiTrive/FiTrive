@@ -45,7 +45,7 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   gem 'sqlite3'
-  gem 'dotenv-rails'
+  #gem 'dotenv-rails'
 end
 
 group :development do
