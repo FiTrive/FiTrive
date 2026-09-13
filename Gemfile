@@ -69,3 +69,5 @@ gem 'sass-rails'
 group :production do
   gem 'pg'
 end
+
+gem "json", "~> 2.7"
