@@ -1,0 +1,59 @@
+<div class="form-wrapper">
+    <div class="form-container">
+        <h2>新規投稿ページ</h2>
+        <%= form_for @tweet do |t| %>
+            <div class="field">
+                <%= t.label :spot_name, "スポット名" %>
+                <%= t.text_field :spot_name, class: "form-control", placeholder: "例：箱根温泉" %>
+            </div>
+
+            <div class="field">
+                <%= t.label :address, "住所・場所" %>
+                <%= t.text_field :address, class: "form-control", placeholder: "例：神奈川県足柄下郡箱根町" %>
+            </div>
+
+            <div class="field">
+                <%= t.label :time, "おすすめの時期" %>
+                <%= t.text_field :time, class: "form-control", placeholder: "例：秋・１１月" %>
+            </div>
+
+            <div class="field">
+                <%= t.label :who, "誰と行きましたか？" %>
+                <%= t.select :who,
+                    [
+                        ["家族","家族"],
+                        ["友達","友達"],
+                        ["彼氏＆彼女","彼氏＆彼女"],
+                        ["独り","独り"],
+                        ["その他","その他"]
+                    ], 
+                    { include_blank: "選択してください" },
+                    { class: "form-control select-box" } %>
+            </div>
+
+            <div class="field">
+                <%= t.label :experience, "体験談・感想" %>
+                <%= t.text_area :experience, class: "form-control text-area", rows: 3, placeholder: "ドライブの思い出や楽しかったことを書いてください" %>
+            </div>
+
+            <div class="field">
+                <%= t.label :advice, "アドバイス・注意点" %>
+                <%= t.text_area :advice, class: "form-control text-area", rows:3, placeholder: "駐車場情報や混雑時間帯など" %>
+            </div>
+
+            <div class="field">
+                <%= t.label :image, "写真を追加" %>
+                <div class="file-input-wrapper">
+                    <%= t.file_field :image, class: "file-input" %>
+                </div>
+            </div>
+
+            <div class="submit-container">
+                <%= t.submit "投稿する", class: "btn btn-submit" %>
+            </div>
+        <% end %>
+        <div class="back-link-container">
+            <%= link_to "一覧に戻る", tweets_path, class:"back-link" %>
+        </div>
+    </div>
+</div>

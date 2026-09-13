@@ -1,0 +1,234 @@
+/* ===================================
+   ホーム画面 全体レイアウト
+   =================================== */
+.home-page {
+  color: #2c3e50;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+/* -----------------------------------
+   1. Hero（メインビジュアル）
+   ----------------------------------- */
+.hero-section {
+  padding: 60px 20px 40px 20px;
+  text-align: center;
+}
+
+.hero-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  padding: 45px 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.hero-sub-title {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #11998e;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hero-title {
+  font-family: "Georgia", "Yu Mincho", "游明朝", serif;
+  font-size: 44px;
+  color: #1b4d3e;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.hero-lead {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #4a5568;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: #ffffff;
+  padding: 13px 30px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(17, 153, 142, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-hero-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(17, 153, 142, 0.4);
+}
+
+.btn-hero-secondary {
+  background: #ffffff;
+  color: #11998e;
+  border: 2px solid #11998e;
+  padding: 11px 28px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-hero-secondary:hover {
+  background: #f0fdf4;
+  transform: translateY(-2px);
+}
+
+/* -----------------------------------
+   2. ステートメント（Webマガジン風）
+   ----------------------------------- */
+.statement-section {
+  padding: 60px 20px;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.statement-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  padding: 45px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.statement-text {
+  flex: 1;
+}
+
+.statement-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #888;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.statement-heading {
+  font-family: "Georgia", "Yu Mincho", "游明朝", serif;
+  font-size: 30px;
+  color: #1b4d3e;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.statement-body p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.statement-image-box {
+  flex: 1;
+  height: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+.statement-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* -----------------------------------
+   3. Tweet一覧 (グリッド表示)
+   ----------------------------------- */
+.tweets-section {
+  padding: 40px 20px 80px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-subtitle {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #11998e;
+  font-weight: bold;
+}
+
+.section-title {
+  font-family: "Georgia", "Yu Mincho", "游明朝", serif;
+  font-size: 26px;
+  color: #1b4d3e;
+  margin-top: 5px;
+}
+
+.tweets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.tweet-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  border-left: 4px solid #11998e;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tweet-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.spot-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1b4d3e;
+  margin: 0 0 8px 0;
+}
+
+.time {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 15px;
+}
+
+.tweet-card-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .statement-container {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+  
+  .statement-image-box {
+    width: 100%;
+    height: 180px;
+  }
+}

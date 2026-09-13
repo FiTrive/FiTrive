@@ -1,0 +1,86 @@
+<div class="form-wrapper">
+  <div class="form-container diagnosis-container">
+    <h2>ドライブスポット診断スタート</h2>
+
+    <%= form_for(@spot, class: 'form-horizontal', role: 'form') do |t| %>
+      <div class="spot-container">
+
+        <!-- Q1 -->
+        <div class="question-box">
+          <p class="question-title">Q1. どれくらいのドライブをしたいですか？</p>
+          <div class="radio-group">
+            <%= t.radio_button :question1, "1", id: "q1_1", required: true %>
+            <label for="q1_1">一時間以内</label>
+
+            <%= t.radio_button :question1, "2", id: "q1_2" %>
+            <label for="q1_2">三時間以内</label>
+
+            <%= t.radio_button :question1, "3", id: "q1_3" %>
+            <label for="q1_3">五時間以内</label>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question-box">
+          <p class="question-title">Q2. 何をしに行きますか？</p>
+          <div class="radio-group">
+            <%= t.radio_button :question2, "1", id: "q2_1", required: true %>
+            <label for="q2_1">緑を感じに！</label>
+
+            <%= t.radio_button :question2, "2", id: "q2_2" %>
+            <label for="q2_2">青を感じに！</label>
+
+            <%= t.radio_button :question2, "3", id: "q2_3" %>
+            <label for="q2_3">食を感じに！</label>
+          </div>
+        </div> 
+
+        <!-- Q3 -->
+        <div class="question-box">
+          <p class="question-title">Q3. 誰と出かけますか？</p>
+          <div class="radio-group">
+            <%= t.radio_button :question3, "1", id: "q3_1", required: true %>
+            <label for="q3_1">家族</label>
+
+            <%= t.radio_button :question3, "2", id: "q3_2" %>
+            <label for="q3_2">友達</label>
+
+            <%= t.radio_button :question3, "3", id: "q3_3" %>
+            <label for="q3_3">彼氏＆彼女</label>
+
+            <%= t.radio_button :question3, "4", id: "q3_4" %>
+            <label for="q3_4">独り</label>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question-box">
+          <p class="question-title">Q4. ドライブ歴は？</p>
+          <div class="radio-group">
+            <%= t.radio_button :question4, "1", id: "q4_1", required: true %>
+            <label for="q4_1">初めて！</label>
+
+            <%= t.radio_button :question4, "2", id: "q4_2" %>
+            <label for="q4_2">あまり行かない</label>
+
+            <%= t.radio_button :question4, "3", id: "q4_3" %>
+            <label for="q4_3">時々行く！</label>
+
+            <%= t.radio_button :question4, "4", id: "q4_4" %>
+            <label for="q4_4">めっちゃ行く！</label>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 送信ボタン -->
+      <div class="submit-container">
+        <%= t.submit "診断結果を見る", class: "btn btn-submit" %>
+      </div>
+    <% end %>
+
+    <div class="back-link-container">
+      <%= link_to "← 一覧に戻る", tweets_path, class: "back-link" %>
+    </div>
+  </div>
+</div>

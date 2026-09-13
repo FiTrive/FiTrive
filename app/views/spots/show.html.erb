@@ -1,0 +1,29 @@
+<div class="result-wrapper">
+  <div class="result-header">
+    <span class="result-badge">診断結果</span>
+    <h5 class="result-lead">あなたにおすすめのスポットは…</h5>
+  </div>
+
+  <% result = get_spot_result(@spot) %>
+
+  <div class="spot-card">
+
+    <div class="spot-body">
+      <h3 class="spot-title"><%= result[:name] %></h3>
+      
+      <div class="spot-section">
+        <span class="spot-label">💡 ベストシーズン・体験</span>
+        <p class="spot-text"><%= result[:desc1] %></p>
+      </div>
+
+      <div class="spot-section">
+        <span class="spot-label">✨ 得られる体験・気分</span>
+        <p class="spot-text"><%= result[:desc2] %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-actions">
+    <%= link_to "もう一度診断する", root_path, class: "btn-retry" %>
+  </div>
+</div>

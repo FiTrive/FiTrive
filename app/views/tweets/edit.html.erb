@@ -1,0 +1,52 @@
+<div class="form-wrapper">
+  <div class="form-container">
+    <h2>投稿の編集</h2>
+
+    <%= form_for @tweet do |t| %>
+      <div class="field">
+        <%= t.label :spot_name, "スポット名" %>
+        <%= t.text_field :spot_name, class: "form-control", placeholder: "例：箱根温泉" %>
+      </div>
+
+      <div class="field">
+        <%= t.label :address, "住所・場所" %>
+        <%= t.text_field :address, class: "form-control", placeholder: "例：神奈川県足柄下郡箱根町" %>
+      </div>
+
+      <div class="field">
+        <%= t.label :time, "所要時間・おすすめの時期" %>
+        <%= t.text_field :time, class: "form-control", placeholder: "例：日帰り / 秋（紅葉）" %>
+      </div>
+
+      <div class="field">
+        <%= t.label :who, "誰と行きましたか？" %>
+        <%= t.select :who,
+            [["家族","家族"],
+             ["友達","友達"],
+             ["彼氏＆彼女","彼氏＆彼女"],
+             ["独り","独り"],
+             ["その他","その他"]], 
+            { include_blank: "選択してください" },
+            { class: "form-control select-box" } %>
+      </div>
+
+      <div class="field">
+        <%= t.label :experience, "体験談・感想" %>
+        <%= t.text_area :experience, class: "form-control text-area", rows: 3 %>
+      </div>
+
+      <div class="field">
+        <%= t.label :advice, "アドバイス・注意点" %>
+        <%= t.text_area :advice, class: "form-control text-area", rows: 3 %>
+      </div>
+
+      <div class="submit-container">
+        <%= t.submit "変更を保存する", class: "btn btn-submit" %>
+      </div>
+    <% end %>
+
+    <div class="back-link-container">
+      <%= link_to "← 詳細画面に戻る", tweet_path(@tweet.id), class: "back-link" %>
+    </div>
+  </div>
+</div>

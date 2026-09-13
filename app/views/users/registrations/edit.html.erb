@@ -1,0 +1,63 @@
+<div class="form-wrapper">
+  <div class="form-container auth-container">
+    <h2>アカウント情報の編集</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :name, "ユーザー名" %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :image, "プロフィール画像" %>
+        <div class="file-input-wrapper">
+          <%= f.file_field :image, class: "file-input" %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :profile, "プロフィール文" %>
+        <%= f.text_area :profile, rows: 3, class: "form-control text-area", placeholder: "自己紹介や好きなドライブコースなど" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div class="unconfirmed-notice">現在確認待ちのメールアドレス: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :password, "新しいパスワード" %>
+        <span class="password-hint">（変更しない場合は空欄のまま）</span>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "変更する場合のみ入力" %>
+        <% if @minimum_password_length %>
+          <span class="password-hint">※ <%= @minimum_password_length %> 文字以上</span>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, "新しいパスワード（確認用）" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "もう一度入力してください" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password, "現在のパスワード" %>
+        <span class="password-hint">（設定変更の確認のために必要です）</span>
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control", placeholder: "現在のパスワードを入力" %>
+      </div>
+
+      <div class="submit-container">
+        <%= f.submit "変更を保存する", class: "btn btn-submit" %>
+      </div>
+    <% end %>
+
+    <div class="back-link-container">
+      <%= link_to "← 戻る", :back, class: "back-link" %>
+    </div>
+  </div>
+</div>

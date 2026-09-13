@@ -1,0 +1,69 @@
+<%= stylesheet_link_tag 'index', :media => "all" %>
+
+<div class="home-page">
+
+
+  <section class="hero-section">
+    <div class="hero-inner">
+      <span class="hero-sub-title">Fit Your Mood, Fit Your Drive</span>
+      <h1 class="hero-title">FiTrive</h1>
+      <p class="hero-lead">
+        走るたび、新しい出会いを。<br>
+        あなただけの特別なドライブスポットを見つけよう。
+      </p>
+      <div class="hero-buttons">
+        <%= link_to "診断を始める", new_spot_path, class: "btn btn-hero-primary" %>
+        <%= link_to "新規投稿", new_tweet_path, class: "btn btn-hero-secondary" %>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="statement-section">
+    <div class="statement-container">
+      <div class="statement-text">
+        <span class="statement-label">Statement</span>
+        <h2 class="statement-heading">
+          運命と思える、<br>
+          出会いを。
+        </h2>
+        <div class="statement-body">
+          <p>日常の喧騒を離れ、アクセルを踏み込む。</p>
+          <p>FiTriveは、ドライブ好きが集まり、おすすめの絶景やスポットを共有する場所です。</p>
+          <p>簡単な診断で、今の気分にぴったりのドライブコースをご提案します。</p>
+        </div>
+      </div>
+      <div class="statement-image-box">
+        <%= image_tag "background.jpg", alt: "ドライブ風景", class: "statement-img" %>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Tweet一覧セクション -->
+  <section class="tweets-section">
+    <div class="tweets-container">
+      <div class="section-header">
+        <span class="section-subtitle">RECOMMENDED SPOTS</span>
+        <h2 class="section-title">Tweet一覧</h2>
+      </div>
+
+      <div class="tweets-grid">
+        <% @tweets.each do |t| %>
+          <div class="tweet-card">
+            <div class="tweet-card-body">
+              <h3 class="spot-name"><%= t.spot_name %></h3>
+              <p class="time">📅 <%= t.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+            </div>
+
+            <div class="tweet-card-actions">
+              <%= link_to "詳細", tweet_path(t.id), class: "btn-sm btn-detail" %>
+              <%= link_to "編集", edit_tweet_path(t.id), class: "btn-sm btn-edit" %>
+              <%= link_to "削除", tweet_path(t.id), method: :delete, class: "btn-sm btn-delete", data: { confirm: "本当に削除しますか？" } %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
+
+</div>

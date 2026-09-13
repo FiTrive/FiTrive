@@ -1,0 +1,104 @@
+/* 認証画面共通レイアウト */
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 110px); /* ヘッダー・フッター分を引いた高さ */
+  padding: 40px 20px 80px;
+  background-color: #f8fafc;
+}
+
+.auth-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 440px;
+  padding: 36px 32px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.auth-title {
+  text-align: center;
+  font-size: 22px;
+  color: #1b4d3e;
+  margin-bottom: 28px;
+  font-weight: bold;
+}
+
+/* フォーム部品 */
+.field {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.password-hint {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: normal;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 14px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus {
+  border-color: #11998e;
+  box-shadow: 0 0 0 3px rgba(17, 153, 142, 0.15);
+}
+
+/* 送信ボタン */
+.actions {
+  margin-top: 28px;
+}
+
+.btn-submit {
+  width: 100%;
+  background: linear-gradient(135deg, #11998e 0%, #1b4d3e 100%);
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+.btn-submit:hover {
+  opacity: 0.92;
+}
+
+.btn-submit:active {
+  transform: scale(0.99);
+}
+
+/* 導線リンク */
+.auth-links {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.auth-links a {
+  color: #11998e;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
+}

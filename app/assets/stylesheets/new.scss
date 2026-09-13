@@ -1,0 +1,104 @@
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px 80px 20px;
+}
+.form-container {
+    width: 100%;
+    max-width: 550px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    padding: 35px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(56, 239, 125, 0.3);
+}
+.form-container h2 {
+    text-align: center;
+    color: #1b4d3e;
+    font-size: 24px;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #2ecc71;
+    letter-spacing: 1px;
+}
+.field{
+    margin-bottom: 20px;
+}
+.field label {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    color: #2d572c;
+    margin-bottom: 6px;
+}
+.form-control {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fcfdfe;
+    transition: all 0,3s ease;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+.form-control:focus {
+    outline: none;
+    border-color: #11998e;
+    box-shadow: 0 0 8px rgba(17, 153, 142, 0.3);
+    background-color: #ffffff;
+}
+.text-area {
+    resize: vertical;
+    min-height: 80px;
+}
+.file-input-wrapper {
+    background: #f8faf8;
+    padding: 10px;
+    border: 1px dashed #2ecc71;
+    border-radius: 8px;
+    text-align: center;
+}
+.file-input {
+    font-size: 14px;
+    color: #555;
+}
+.submit-container {
+    margin-top: 30px;
+    text-align: center;
+}
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #ffffff;
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0,3s ease;
+}
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(56, 239, 125, 0.4);
+    opacity: 0.95;
+}
+.back-link-container {
+    margin-top: 20px;
+    text-align: center;
+}
+.back-link {
+    color: #27ae60;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+.back-link:hover {
+    color: #11998e;
+    text-decoration: underline;
+}

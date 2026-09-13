@@ -1,0 +1,75 @@
+
+<div class="show-wrapper">
+  <div class="detail-container">
+    <h2>Tweet詳細</h2>
+
+
+    <% if @tweet.image.present? %>
+      <div class="detail-image">
+        <%= image_tag @tweet.image.url %>
+      </div>
+    <% end %>
+
+   
+    <div class="detail-card">
+      <div class="detail-item">
+        <span class="label">スポット名</span>
+        <p class="content spot-title"><%= @tweet.spot_name %></p>
+      </div>
+
+      <div class="detail-item">
+        <span class="label">住所・場所</span>
+        <p class="content"><%= @tweet.address %></p>
+      </div>
+
+      <div class="detail-item-group">
+        <div class="detail-item">
+          <span class="label">所要時間・時期</span>
+          <p class="content"><%= @tweet.time %></p>
+        </div>
+        <div class="detail-item">
+          <span class="label">誰と</span>
+          <p class="content"><%= @tweet.who %></p>
+        </div>
+      </div>
+
+      <div class="detail-item">
+        <span class="label">体験談・感想</span>
+        <p class="content text-box"><%= @tweet.experience %></p>
+      </div>
+
+      <div class="detail-item">
+        <span class="label">アドバイス・注意点</span>
+        <p class="content text-box"><%= @tweet.advice %></p>
+      </div>
+    </div>
+
+    
+    <div class="action-buttons">
+      <%= link_to "← Tweet一覧に戻る", tweets_path, class: "btn-back" %>
+      <%= link_to "編集する", edit_tweet_path(@tweet.id), class: "btn-edit-action" %>
+    </div>
+
+  
+    <div class="comment-wrapper">
+      <h3>コメント一覧</h3>
+
+      <div class="comment-list">
+        <% if @comments.present? %>
+          <% @comments.each do |c| %>
+            <div class="comment-item">
+              <p><%= c.content %></p>
+            </div>
+          <% end %>
+        <% else %>
+          <p class="no-comment">まだコメントはありません。</p>
+        <% end %>
+      </div>
+
+      <%= form_with(model: [@tweet, @comment], local: true, class: "comment-form") do |f| %>
+        <%= f.text_area :content, placeholder: "コメントを入力...", class: "comment-area" %>
+        <%= f.submit "コメントする", class: "btn-comment" %>
+      <% end %>
+    </div>
+  </div>
+</div>
