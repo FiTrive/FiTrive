@@ -1,0 +1,20 @@
+.remember-me-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.checkbox-input {
+  width: 16px;
+  height: 16px;
+  accent-color: #11998e;
+  cursor: pointer;
+}
+
+.checkbox-label {
+  font-size: 13px;
+  color: #475569;
+  cursor: pointer;
+  user-select: none;
+}
