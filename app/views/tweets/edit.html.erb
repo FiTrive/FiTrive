@@ -40,6 +40,21 @@
         <%= t.text_area :advice, class: "form-control text-area", rows: 3 %>
       </div>
 
+      <!-- タグ編集エリア（追加） -->
+      <div class="field">
+        <%= t.label :tag_ids, "🏷️ タグ" %>
+        <div class="form-group">
+          <%= t.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+            <div class="form-check">
+              <%= tag.label class: "form-check-label" do %>
+                <%= tag.check_box class: "form-check-input" %>
+                <%= tag.text %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
       <div class="submit-container">
         <%= t.submit "変更を保存する", class: "btn btn-submit" %>
       </div>

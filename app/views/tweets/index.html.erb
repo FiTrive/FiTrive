@@ -2,7 +2,7 @@
 
 <div class="home-page">
 
-
+  <!-- 1. ヒーローセクション -->
   <section class="hero-section">
     <div class="hero-inner">
       <span class="hero-sub-title">Fit Your Mood, Fit Your Drive</span>
@@ -18,7 +18,7 @@
     </div>
   </section>
 
-
+  <!-- 2. ステートメントセクション -->
   <section class="statement-section">
     <div class="statement-container">
       <div class="statement-text">
@@ -47,22 +47,91 @@
         <h2 class="section-title">Tweet一覧</h2>
       </div>
 
-      <div class="tweets-grid">
-        <% @tweets.each do |t| %>
-          <div class="tweet-card">
-            <div class="tweet-card-body">
-              <h3 class="spot-name"><%= t.spot_name %></h3>
-              <p class="time">📅 <%= t.created_at.strftime('%Y/%m/%d %H:%M') %></p>
-            </div>
+      <!-- タグ絞り込みエリア -->
+      <div class="tag-search-box">
+        <div class="tag-search-header">
+          <span class="tag-search-title">🏷️ タグで絞り込む</span>
+          <% if params[:tag_ids].present? %>
+            <span class="search-badge">検索中</span>
+          <% end %>
+        </div>
 
-            <div class="tweet-card-actions">
-              <%= link_to "詳細", tweet_path(t.id), class: "btn-sm btn-detail" %>
-              <%= link_to "編集", edit_tweet_path(t.id), class: "btn-sm btn-edit" %>
-              <%= link_to "削除", tweet_path(t.id), method: :delete, class: "btn-sm btn-delete", data: { confirm: "本当に削除しますか？" } %>
-            </div>
+        <%= form_tag(tweets_path, method: :get, class: "tag-search-form") do %>
+          <div class="tag-checkbox-group">
+            <% Tag.all.each do |t| %>
+              <% is_checked = params.dig(:tag_ids, t.name) == "1" %>
+              <label class="tag-chip <%= 'active' if is_checked %>">
+                <%= check_box_tag "tag_ids[#{t.name}]", "1", is_checked, class: "tag-chip-checkbox" %>
+                <span>#<%= t.name %></span>
+              </label>
+            <% end %>
+          </div>
+          
+          <div class="tag-search-actions">
+            <%= submit_tag '条件で検索する', class: "btn-search" %>
+            <% if params[:tag_ids].present? %>
+              <%= link_to "絞り込みを解除", tweets_path, class: "btn-reset" %>
+            <% end %>
           </div>
         <% end %>
       </div>
+
+      <!-- 検索結果の件数表示 -->
+      <% if params[:tag_ids].present? %>
+        <div class="search-result-bar">
+          <p class="search-result-info">
+            絞り込み条件：
+            <strong>
+              <% selected_tags = params[:tag_ids].select { |_, v| v == "1" }.keys %>
+              <%= selected_tags.join(" ＆ ") %>
+            </strong>
+            （該当 <strong><%= @tweets.size %></strong> 件）
+          </p>
+        </div>
+      <% end %>
+
+      <!-- Tweet一覧カード表示 -->
+      <% if @tweets.present? %>
+        <div class="tweets-grid">
+          <% @tweets.each do |t| %>
+            <div class="tweet-card">
+              <!-- 画像が添付されている場合は表示 -->
+              <% if respond_to?(:image) && t.image.present? %>
+                <div class="tweet-card-image">
+                  <%= image_tag t.image, class: "tweet-img" %>
+                </div>
+              <% end %>
+
+              <div class="tweet-card-body">
+                <h3 class="spot-name"><%= t.spot_name %></h3>
+                
+                <!-- 投稿に紐づくタグ一覧を表示 -->
+                <% if t.respond_to?(:tags) && t.tags.present? %>
+                  <div class="tweet-card-tags">
+                    <% t.tags.each do |tag| %>
+                      <span class="tweet-tag-badge">#<%= tag.name %></span>
+                    <% end %>
+                  </div>
+                <% end %>
+
+                <p class="time">📅 <%= t.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+              </div>
+
+              <div class="tweet-card-actions">
+                <%= link_to "詳細", tweet_path(t.id), class: "btn-sm btn-detail" %>
+                <%= link_to "編集", edit_tweet_path(t.id), class: "btn-sm btn-edit" %>
+                <%= link_to "削除", tweet_path(t.id), method: :delete, class: "btn-sm btn-delete", data: { confirm: "本当に削除しますか？" } %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="no-tweets-box">
+          <p class="no-tweets-message">該当するドライブスポットが見つかりませんでした。</p>
+          <%= link_to "全件表示に戻る", tweets_path, class: "btn-reset-large" %>
+        </div>
+      <% end %>
+
     </div>
   </section>
 

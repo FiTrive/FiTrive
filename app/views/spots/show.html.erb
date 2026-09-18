@@ -2,12 +2,19 @@
   <div class="result-header">
     <span class="result-badge">診断結果</span>
     <h5 class="result-lead">あなたにおすすめのスポットは…</h5>
+    
+    <!-- 診断されたタグの組み合わせを「〇 ＆ 〇 ＆ 〇」で表示 -->
+    <% if @result_tag_names.present? %>
+      <div class="result-tag-summary">
+        <span class="tag-label">診断テーマ：</span>
+        <strong class="tag-names"><%= @result_tag_names.join(" ＆ ") %></strong>
+      </div>
+    <% end %>
   </div>
 
   <% result = get_spot_result(@spot) %>
 
   <div class="spot-card">
-
     <div class="spot-body">
       <h3 class="spot-title"><%= result[:name] %></h3>
       
@@ -21,6 +28,28 @@
         <p class="spot-text"><%= result[:desc2] %></p>
       </div>
     </div>
+  </div>
+
+  <!-- 診断タグに完全に合致する投稿一覧エリア -->
+  <div class="related-tweets-section">
+    <% if @result_tag_names.present? %>
+      <h3>「<%= @result_tag_names.join(" ＆ ") %>」にピッタリな投稿（<%= @related_tweets.size %>件）</h3>
+    <% else %>
+      <h3>おすすめの投稿一覧（<%= @related_tweets.size %>件）</h3>
+    <% end %>
+
+    <% if @related_tweets.present? %>
+      <div class="tweets-grid">
+        <% @related_tweets.each do |t| %>
+          <div class="tweet-card">
+            <h4><%= t.spot_name %></h4>
+            <%= link_to "詳細を見る", tweet_path(t), class: "btn-sm" %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p>この条件を満たすみんなの投稿はまだありません。</p>
+    <% end %>
   </div>
 
   <div class="result-actions">

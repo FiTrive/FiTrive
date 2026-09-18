@@ -4,10 +4,16 @@
     <h2>Tweet詳細</h2>
 
 
+
     <% if @tweet.image.present? %>
       <div class="detail-image">
         <%= image_tag @tweet.image.url %>
       </div>
+    <% end %>
+
+
+    <% @tweet.tags.each do |tag| %>
+      <span><%= tag.name %></span>
     <% end %>
 
    
@@ -47,7 +53,11 @@
     
     <div class="action-buttons">
       <%= link_to "← Tweet一覧に戻る", tweets_path, class: "btn-back" %>
-      <%= link_to "編集する", edit_tweet_path(@tweet.id), class: "btn-edit-action" %>
+  
+      <%# ログイン中かつ投稿者本人の場合のみ表示 %>
+      <% if user_signed_in? && @tweet.user_id == current_user.id %>
+        <%= link_to "編集する", edit_tweet_path(@tweet.id), class: "btn-edit-action" %>
+      <% end %>
     </div>
 
   
@@ -73,3 +83,4 @@
     </div>
   </div>
 </div>
+
