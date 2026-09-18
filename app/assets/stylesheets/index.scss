@@ -388,3 +388,50 @@
     height: 180px;
   }
 }
+
+/* タグ追加フォームエリア */
+.tag-add-box {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed rgba(17, 153, 142, 0.2);
+}
+
+.tag-add-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tag-add-input {
+  padding: 6px 14px;
+  border: 1px solid #bbf7d0;
+  border-radius: 20px;
+  font-size: 13px;
+  outline: none;
+  background-color: #ffffff;
+  color: #1b4d3e;
+  transition: all 0.2s ease;
+
+  &:focus {
+    border-color: #11998e;
+    box-shadow: 0 0 0 2px rgba(17, 153, 142, 0.15);
+  }
+}
+
+.btn-add-tag {
+  background-color: #11998e;
+  color: #ffffff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #0d7a71;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(17, 153, 142, 0.2);
+  }
+}

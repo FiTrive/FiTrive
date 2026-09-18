@@ -74,6 +74,13 @@
             <% end %>
           </div>
         <% end %>
+
+        <div class="tag-add-box">
+          <%= form_with(model: Tag.new, local: true, class: "tag-add-form") do |f| %>
+            <%= f.text_field :name, placeholder: "新しいタグ名を入力", class: "tag-add-input", required: true %>
+            <%= f.submit "＋ タグを追加", class: "btn-add-tag" %>
+          <% end %>
+        </div>
       </div>
 
       <!-- 検索結果の件数表示 -->
