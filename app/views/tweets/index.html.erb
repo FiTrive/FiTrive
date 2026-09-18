@@ -120,7 +120,7 @@
               <div class="tweet-card-actions">
                 <%= link_to "詳細", tweet_path(t.id), class: "btn-sm btn-detail" %>
                 <%= link_to "編集", edit_tweet_path(t.id), class: "btn-sm btn-edit" %>
-                <%= link_to "削除", tweet_path(t.id), method: :delete, class: "btn-sm btn-delete", data: { confirm: "本当に削除しますか？" } %>
+                <%= button_to "削除", tweet_path(t.id), method: :delete, class: "btn-sm btn-delete", data: { turbo_confirm: "本当に削除しますか？" } %>
               </div>
             </div>
           <% end %>

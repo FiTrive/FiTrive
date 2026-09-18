@@ -7,15 +7,9 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-Tag.create([
-  { name: '緑' },
-  { name: '青' },
-  { name: '食' },
-  { name: '一時間' },
-  { name: '三時間' },
-  { name: '五時間' },
-  { name: '友達' },
-  { name: '家族' },
-  { name: 'カップル' },
-  { name: '1人' },
-])
+
+tags = ['緑', '青', '食', '一時間', '三時間', '五時間', '友達', '家族', 'カップル', '1人']
+
+tags.each do |tag_name|
+  Tag.find_or_create_by!(name: tag_name)
+end

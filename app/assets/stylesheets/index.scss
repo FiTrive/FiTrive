@@ -143,6 +143,7 @@
   overflow: hidden;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
+
 .statement-img {
   width: 100%;
   height: 100%;
@@ -150,7 +151,9 @@
   display: block;
 }
 
-
+/* -----------------------------------
+   3. 投稿一覧セクション
+   ----------------------------------- */
 .tweets-section {
   padding: 40px 20px 80px 20px;
   max-width: 1000px;
@@ -218,22 +221,9 @@
   justify-content: flex-end;
 }
 
-/* スマホ対応 */
-@media (max-width: 768px) {
-  .statement-container {
-    flex-direction: column;
-    padding: 30px 20px;
-  }
-  
-  .statement-image-box {
-    width: 100%;
-    height: 180px;
-  }
-/* ===================================
-   追加パーツ：タグ絞り込み & アクションボタン
-   =================================== */
-
-/* タグ絞り込みボックス全体 */
+/* -----------------------------------
+   4. タグ絞り込み & アクションボタン
+   ----------------------------------- */
 .tag-search-box {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(8px);
@@ -252,7 +242,6 @@
   margin-bottom: 15px;
 }
 
-/* タグのチェックボックス（カプセル型デザイン） */
 .tag-checkbox-group {
   display: flex;
   flex-wrap: wrap;
@@ -285,7 +274,6 @@
   cursor: pointer;
 }
 
-/* 検索・リセットアクション */
 .tag-search-actions {
   display: flex;
   align-items: center;
@@ -322,7 +310,6 @@
   text-decoration: underline;
 }
 
-/* 絞り込み件数表示 */
 .search-result-info {
   font-size: 14px;
   color: #11998e;
@@ -338,7 +325,6 @@
   color: #1b4d3e;
 }
 
-/* カード内の詳細・編集・削除ボタン */
 .btn-sm {
   padding: 6px 14px;
   border-radius: 8px;
@@ -378,7 +364,6 @@
   background-color: #fed7d7;
 }
 
-/* 該当投稿がない時のメッセージ */
 .no-tweets-message {
   text-align: center;
   padding: 50px 20px;
@@ -388,4 +373,18 @@
   font-size: 14px;
   border: 1px dashed #cbd5e0;
 }
+
+/* -----------------------------------
+   5. スマホ対応 (レスポンシブ)
+   ----------------------------------- */
+@media (max-width: 768px) {
+  .statement-container {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+  
+  .statement-image-box {
+    width: 100%;
+    height: 180px;
+  }
 }
